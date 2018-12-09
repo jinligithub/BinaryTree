@@ -4,7 +4,7 @@
 #include<assert.h>
 #include<malloc.h>
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-//ÊÕË÷¶ş²æÊ÷²åÈëÉ¾³ı²éÕÒµİ¹éÓë·Çµİ¹éµÄÊµÏÖ
+//æ”¶ç´¢äºŒå‰æ ‘æ’å…¥åˆ é™¤æŸ¥æ‰¾é€’å½’ä¸éé€’å½’çš„å®ç°
 
 typedef int BSDataType;
 typedef struct BSTreeNode
@@ -14,16 +14,16 @@ typedef struct BSTreeNode
 	BSDataType _data;
 }BSTreeNode;
 
-//·Çµİ¹é
-int BSTreeInsert(BSTreeNode**pptree, BSDataType x);//ÊÕË÷¶ş²æÊ÷µÄ²åÈë
-int BSTreeRemove(BSTreeNode**pptree, BSDataType x);//ÊÕË÷¶ş²æÊ÷µÄÉ¾³ı
-BSTreeNode* BSTreeFind(BSTreeNode** pptree, BSDataType x);//ÊÕË÷¶ş²æÊ÷µÄ²éÕÒ
+//éé€’å½’
+int BSTreeInsert(BSTreeNode**pptree, BSDataType x);//æ”¶ç´¢äºŒå‰æ ‘çš„æ’å…¥
+int BSTreeRemove(BSTreeNode**pptree, BSDataType x);//æ”¶ç´¢äºŒå‰æ ‘çš„åˆ é™¤
+BSTreeNode* BSTreeFind(BSTreeNode** pptree, BSDataType x);//æ”¶ç´¢äºŒå‰æ ‘çš„æŸ¥æ‰¾
 
-//µİ¹é
+//é€’å½’
 int BSTreeInsert_R(BSTreeNode**pptree, BSDataType x);
 int BSTreeRemove_R(BSTreeNode**pptree, BSDataType x);
 BSTreeNode* BSTreeFind_R(BSTreeNode** pptree, BSDataType x);
 
-void BSTreeDretory(BSTreeNode** pptree);//Ïú»Ùº¯Êı
-void BSTreeInorder(BSTreeNode**pptree);//ÖĞĞò±éÀú
+void BSTreeDretory(BSTreeNode** pptree);//é”€æ¯å‡½æ•°
+void BSTreeInorder(BSTreeNode**pptree);//ä¸­åºéå†
 

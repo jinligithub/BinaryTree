@@ -1,10 +1,10 @@
 #include"BinarySearchTree.h"
-//·Çµİ¹é
+//éé€’å½’
 
-//souË÷¶ş²æÊ÷µÄ²åÈë
-BSTreeNode* BuyBSTreeNode(BSDataType x)//´´½¨Ò»¸ö½Úµã
+//souç´¢äºŒå‰æ ‘çš„æ’å…¥
+BSTreeNode* BuyBSTreeNode(BSDataType x)//åˆ›å»ºä¸€ä¸ªèŠ‚ç‚¹
 {
-	//Ó¦¸ÃÉêÇëÒ»¸ö½ÚµãµÄ´óĞ¡£¬¶ø²»ÊÇÒ»¸öBSDataType
+	//åº”è¯¥ç”³è¯·ä¸€ä¸ªèŠ‚ç‚¹çš„å¤§å°ï¼Œè€Œä¸æ˜¯ä¸€ä¸ªBSDataType
 	//BSTreeNode* node = (BSTreeNode*)malloc(sizeof(BSDataType));
 	BSTreeNode* node = (BSTreeNode*)malloc(sizeof(BSTreeNode));
 	node->_left = NULL;
@@ -16,22 +16,22 @@ int BSTreeInsert(BSTreeNode**pptree, BSDataType x)
 {
 	BSTreeNode* cur = NULL;
 	BSTreeNode* parent = NULL;
-	//¿Õ¶ş²æÊ÷
+	//ç©ºäºŒå‰æ ‘
 	if ((*pptree) == NULL)
 	{
 		*pptree = BuyBSTreeNode(x);
 		return 1;
 	}
 	cur = *pptree;
-	//·Ç¿Õ¶ş²æÊ÷
+	//éç©ºäºŒå‰æ ‘
 	while (cur)
 	{
-		if (cur->_data > x)//¸ù½Úµã´óÓÚXÔÚ×ó±ß²åÈë
+		if (cur->_data > x)//æ ¹èŠ‚ç‚¹å¤§äºXåœ¨å·¦è¾¹æ’å…¥
 		{
 			parent = cur;
 			cur = cur->_left;
 		}
-		else if (cur->_data < x)//¸ù½ÚµãĞ¡ÓÚXÔÚÓÒ±ß²åÈë
+		else if (cur->_data < x)//æ ¹èŠ‚ç‚¹å°äºXåœ¨å³è¾¹æ’å…¥
 		{
 			parent = cur;
 			cur = cur->_right;
@@ -41,18 +41,18 @@ int BSTreeInsert(BSTreeNode**pptree, BSDataType x)
 			return 0;
 		}
 	}
-	if (parent->_data<x)//´óÓÚ¸¸½Úµã
+	if (parent->_data<x)//å¤§äºçˆ¶èŠ‚ç‚¹
 	{
 		parent->_right = BuyBSTreeNode(x);
 	}
-	else//Ğ¡ÓÚ¸¸½Úµã
+	else//å°äºçˆ¶èŠ‚ç‚¹
 	{
 		parent->_left = BuyBSTreeNode(x);
 	}
 	return 1;
 	
 }
-//ÊÕË÷¶ş²æÊ÷µÄÉ¾³ı
+//æ”¶ç´¢äºŒå‰æ ‘çš„åˆ é™¤
 int BSTreeRemove(BSTreeNode**pptree, BSDataType x)
 {
 	BSTreeNode*cur = NULL;
@@ -71,11 +71,11 @@ int BSTreeRemove(BSTreeNode**pptree, BSDataType x)
 			cur = cur->_right;
 		}
 		else
-			//É¾³ı½Úµã
+			//åˆ é™¤èŠ‚ç‚¹
 		{
-			if (cur->_left == NULL)//É¾³ı½ÚµãµÄ×ó×ÓÊ÷Îª¿Õ
+			if (cur->_left == NULL)//åˆ é™¤èŠ‚ç‚¹çš„å·¦å­æ ‘ä¸ºç©º
 			{
-				if (parent = NULL)//ÅĞ¶ÏcurµÄ¸¸½ÚµãÎª¿Õ
+				if (parent = NULL)//åˆ¤æ–­curçš„çˆ¶èŠ‚ç‚¹ä¸ºç©º
 				{
 					*pptree = cur->_right;
 				}
@@ -91,9 +91,9 @@ int BSTreeRemove(BSTreeNode**pptree, BSDataType x)
 					}
 				}
 			}
-			else if (cur->_right == NULL)//ÓÒ×ÓÊ÷Îª¿Õ
+			else if (cur->_right == NULL)//å³å­æ ‘ä¸ºç©º
 			{
-				if (parent == NULL)//ÅĞ¶ÏcurµÄ¸¸½ÚµãÎª¿Õ
+				if (parent == NULL)//åˆ¤æ–­curçš„çˆ¶èŠ‚ç‚¹ä¸ºç©º
 				{
 					*pptree = cur->_left;
 				}
@@ -109,15 +109,15 @@ int BSTreeRemove(BSTreeNode**pptree, BSDataType x)
 					}
 				}
 			}
-			else//×óÓÒ¶¼²»Îª¿Õ
+			else//å·¦å³éƒ½ä¸ä¸ºç©º
 			{
-				BSTreeNode*replace = cur->_right;//´´½¨Ò»¸öÒªÉ¾³ıµÄ½ÚµãµÄ´úÌæ½Úµã
-				while (replace->_left)//È¥×ó±ßÕÒ×îĞ¡Öµ
+				BSTreeNode*replace = cur->_right;//åˆ›å»ºä¸€ä¸ªè¦åˆ é™¤çš„èŠ‚ç‚¹çš„ä»£æ›¿èŠ‚ç‚¹
+				while (replace->_left)//å»å·¦è¾¹æ‰¾æœ€å°å€¼
 				{
 					replace = replace->_left;
 				}
-				cur->_data = replace->_data;//°ÑÒªÉ¾³ıµÄ½Úµã¸³ÖµÎª´úÌæ½ÚµãµÄÖµ
-				return BSTreeRemove(&cur->_right, replace->_data);//ÀûÓÃµİ¹éµÄ·½·¨É¾³ı´úÌæµÄ½Úµã
+				cur->_data = replace->_data;//æŠŠè¦åˆ é™¤çš„èŠ‚ç‚¹èµ‹å€¼ä¸ºä»£æ›¿èŠ‚ç‚¹çš„å€¼
+				return BSTreeRemove(&cur->_right, replace->_data);//åˆ©ç”¨é€’å½’çš„æ–¹æ³•åˆ é™¤ä»£æ›¿çš„èŠ‚ç‚¹
 			}
 			free(cur);
 			return 1;
@@ -125,40 +125,40 @@ int BSTreeRemove(BSTreeNode**pptree, BSDataType x)
 		}
 	}
 }
-//ÊÕË÷¶ş²æÊ÷µÄ²éÕÒ
+//æ”¶ç´¢äºŒå‰æ ‘çš„æŸ¥æ‰¾
 BSTreeNode* BSTreeFind(BSTreeNode** pptree, BSDataType x)
 {
 	BSTreeNode* cur = *pptree;
 	while (cur)
 	{
-		if (cur->_data < x)//¸ù½ÚµãĞ¡ÓÚx£¬ÔÚÓÒ±ßÕÒ
+		if (cur->_data < x)//æ ¹èŠ‚ç‚¹å°äºxï¼Œåœ¨å³è¾¹æ‰¾
 		{
 			cur = cur->_right;
 		}
-		else if (cur->_data > x)//¸ù½Úµã´óÓÚx£¬ÔÚ×ó±ßÕÒ
+		else if (cur->_data > x)//æ ¹èŠ‚ç‚¹å¤§äºxï¼Œåœ¨å·¦è¾¹æ‰¾
 		{
 			cur = cur->_left;
 		}
-		else//ÕÒµ½ÁË
+		else//æ‰¾åˆ°äº†
 		{
 			return cur;
 		}
 	}
-	return NULL;//Ã»ÕÒµ½
+	return NULL;//æ²¡æ‰¾åˆ°
 }
 
 
-//µİ¹é
+//é€’å½’
 int BSTreeInsert_R(BSTreeNode**pptree, BSDataType x)
 {
-	if ((*pptree) == NULL)//¿ÕÊ÷
+	if ((*pptree) == NULL)//ç©ºæ ‘
 	{
 		*pptree = BuyBSTreeNode(x);
 		return 1;
 	}
-	if ((*pptree)->_data > x)//¸ù½Úµã´óÓÚx£¬ÔÚ×ó±ßÕÒ
+	if ((*pptree)->_data > x)//æ ¹èŠ‚ç‚¹å¤§äºxï¼Œåœ¨å·¦è¾¹æ‰¾
 		return BSTreeInsert_R(&(*pptree)->_left, x);
-	else if ((*pptree)->_data < x)//¸ù½ÚµãĞ¡ÓÚx,ÔÚÓÒ±ßÕÒ
+	else if ((*pptree)->_data < x)//æ ¹èŠ‚ç‚¹å°äºx,åœ¨å³è¾¹æ‰¾
 		return BSTreeInsert_R(&(*pptree)->_right, x);
 	else
 		return 0;
@@ -170,32 +170,32 @@ int BSTreeRemove_R(BSTreeNode**pptree, BSDataType x)
 	{
 		return -1;
 	}
-	if ((*pptree)->_data > x)//¸ù½Úµã´óÓÚx£¬ÔÚ×ó±ßÕÒ
+	if ((*pptree)->_data > x)//æ ¹èŠ‚ç‚¹å¤§äºxï¼Œåœ¨å·¦è¾¹æ‰¾
 		return BSTreeRemove_R(&((*pptree)->_left), x);
-	else if ((*pptree)->_data < x)//¸ù½ÚµãĞ¡ÓÚx,ÔÚÓÒ±ßÕÒ
+	else if ((*pptree)->_data < x)//æ ¹èŠ‚ç‚¹å°äºx,åœ¨å³è¾¹æ‰¾
 		return BSTreeRemove_R(&((*pptree)->_right), x);
-	else//É¾³ı½Úµã
+	else//åˆ é™¤èŠ‚ç‚¹
 	{
 		BSTreeNode* del = *pptree;
-		if ((*pptree)->_left == NULL)//×ó×ÓÊ÷Îª¿Õ
+		if ((*pptree)->_left == NULL)//å·¦å­æ ‘ä¸ºç©º
 		{
 			*pptree = (*pptree)->_right;
 			free(del);
 		}
-		else if((*pptree)->_right == NULL)//ÓÒ×ÓÊ÷Îª¿Õ
+		else if((*pptree)->_right == NULL)//å³å­æ ‘ä¸ºç©º
 		{
 			*pptree = (*pptree)->_left;
 			free(del);
 		}
-		else//¶¼²»Îª¿Õ
+		else//éƒ½ä¸ä¸ºç©º
 		{
-			BSTreeNode* replace = (*pptree)->_right;//´´½¨Ò»¸öÒªÉ¾³ıµÄ½ÚµãµÄ´úÌæ½Úµã
-			while (replace->_left)//ÔÚ×ó×ÓÊ÷ÕÒÒ»¸ö×îĞ¡Öµ
+			BSTreeNode* replace = (*pptree)->_right;//åˆ›å»ºä¸€ä¸ªè¦åˆ é™¤çš„èŠ‚ç‚¹çš„ä»£æ›¿èŠ‚ç‚¹
+			while (replace->_left)//åœ¨å·¦å­æ ‘æ‰¾ä¸€ä¸ªæœ€å°å€¼
 			{
 				replace = replace->_left;
 			}
-			(*pptree)->_data = replace->_data;//°ÑÒªÉ¾³ıµÄ½Úµã¸³ÖµÎª´úÌæ½ÚµãµÄÖµ
-			return BSTreeRemove_R(&(*pptree)->_right,  replace->_data);//ÀûÓÃµİ¹éÉ¾³ı½Úµã
+			(*pptree)->_data = replace->_data;//æŠŠè¦åˆ é™¤çš„èŠ‚ç‚¹èµ‹å€¼ä¸ºä»£æ›¿èŠ‚ç‚¹çš„å€¼
+			return BSTreeRemove_R(&(*pptree)->_right,  replace->_data);//åˆ©ç”¨é€’å½’åˆ é™¤èŠ‚ç‚¹
 		}
 	}
 	return 1;
@@ -204,22 +204,22 @@ int BSTreeRemove_R(BSTreeNode**pptree, BSDataType x)
 
 BSTreeNode* BSTreeFind_R(BSTreeNode** pptree, BSDataType x)
 {
-	if (*pptree == NULL)//¿ÕÊ÷
+	if (*pptree == NULL)//ç©ºæ ‘
 	{
 		return NULL;
 	}
-	if ((*pptree)->_data > x)//¸ù½ÚµãĞ¡ÓÚÒª²éÕÒµÄÖµ
+	if ((*pptree)->_data > x)//æ ¹èŠ‚ç‚¹å°äºè¦æŸ¥æ‰¾çš„å€¼
 		return BSTreeFind_R(&(*pptree)->_right, x);
-	else if ((*pptree)->_data < x)//¸ù½Úµã´óÓÚÒª²éÕÒµÄÖµ
+	else if ((*pptree)->_data < x)//æ ¹èŠ‚ç‚¹å¤§äºè¦æŸ¥æ‰¾çš„å€¼
 		return BSTreeFind_R(&(*pptree)->_left, x);
-	else//ÕÒµ½ÁË
+	else//æ‰¾åˆ°äº†
 		return *pptree;
 
 }
 
-//ÖĞĞò±éÀú
+//ä¸­åºéå†
 
-void BSTreeInorder(BSTreeNode**pptree)//×ó ¸ù ÓÒ
+void BSTreeInorder(BSTreeNode**pptree)//å·¦ æ ¹ å³
 {
 	if ((*pptree) == NULL)
 	{
@@ -231,3 +231,9 @@ void BSTreeInorder(BSTreeNode**pptree)//×ó ¸ù ÓÒ
 	if ((*pptree)->_right != NULL)
 		BSTreeInorder(&(*pptree)->_right);
 }
+
+
+/**
+ * æµ‹è¯•:gitå®¢æˆ·ç«¯commitæ˜¯å¦æˆåŠŸ?
+    Successï¼š å¯ä»¥å®Œæ•´ç­”åº”æ­¤éƒ¨åˆ†æ³¨é‡Šå†…å®¹.
+*/

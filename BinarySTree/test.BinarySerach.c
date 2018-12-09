@@ -26,8 +26,8 @@ void TestInsert()
 	//pos = BSTreeFind_R(*(&stree), 17);
 	//if (pos != NULL)
 	//{
-	//	printf("ÕÒµ½ÁË\n");
-	//	//printf("%d\n", pos->_data);//ÎªÊ²Ã´´òÓ¡²»³öÀ´pos µÄÖµ
+	//	printf("æ‰¾åˆ°äº†\n");
+	//	//printf("%d\n", pos->_data);//ä¸ºä»€ä¹ˆæ‰“å°ä¸å‡ºæ¥pos çš„å€¼
 	//}
 	//BSTreeRemove(&stree, 31);
 	//BSTreeInorder(&stree);
